@@ -208,7 +208,7 @@ mode "$mode_redshift" {
     bindsym Escape mode "default"
 }
 
-set $Locker i3lock && sleep 1
+set $Locker i3lock --color 000000 && sleep 1
 
 set $mode_system (l)lock  (e)logout  (s)suspend  (h)hibernate  (r)reboot  (Shift+s)shutdown
  
