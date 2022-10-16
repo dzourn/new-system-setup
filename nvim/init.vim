@@ -88,5 +88,10 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+function! s:disable_coc_for_type()
+        let l:filesuffix_blacklist = ['s', 'S', 'asm']
+	if index(l:filesuffix_blacklist, expand('%:e')) != -1
+		let b:coc_enabled = 0
+	endif
+endfunction
+autocmd BufRead,BufNewFile * call s:disable_coc_for_type()
